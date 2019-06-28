@@ -1,0 +1,17 @@
+{
+  "predicates": [
+    {
+      "matches": {
+        "method": "GET",
+        "path": "/screenpop/v1/calldata/did/[404]\\d+/ani/[404]\\d+"
+      }
+    }
+  ],
+  "responses": [
+    {
+      "is": {
+        "statusCode": 404
+      }
+    }
+  ]
+}

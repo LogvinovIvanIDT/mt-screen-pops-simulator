@@ -1,0 +1,26 @@
+{
+  "predicates": [
+    {
+      "matches": {
+        "method": "GET",
+        "path": "/screenpop/v1/calldata/did/[3]\\d+/ani/[3]\\d+"
+      }
+    }
+  ],
+  "responses": [
+    {
+      "is": {
+        "statusCode": 200,
+        "body": {
+          "product" :"pinless",
+          "dnis": "123654",
+          "ani": "321654",
+          "did": "789456",
+          "classId": "14072",
+          "language": "eng",
+          "pin": ""
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "predicates": [
+    {
+      "matches": {
+        "method": "PUT",
+        "path": "/screenpop/v1/calldata/did/[1]\\d+/ani/[1]\\d+"
+      }
+    }
+  ],
+  "responses": [
+    {
+      "inject": "function (config) { \n\nconsole.log(5);\n\nvar path = config.request.path;\nlet didRegExp = \"(?<=did\\/).+?(?=\\/ani)\";\nlet aniRegExp = \"(?<=ani\\/).+\";\n\nvar cacheKey = path.match(didRegExp)[0] + \".\" + path.match(aniRegExp)[0];\n\nif (typeof config.state.requests === 'undefined') {\n        config.state.requests = {};\n}\n\nif (config.state.requests[cacheKey]) {\n        config.logger.info('rewrite previous response');\n        config.logger.info(config.state.requests[cacheKey]);\n}\n\nconfig.state.requests[cacheKey] =  config.request.body;\n\n return {\n \t\tstatusCode: 200,\n        body: 'There have been  proxied calls'\n    };\n\n}"
+    }
+  ]
+}

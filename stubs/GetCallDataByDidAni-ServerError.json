@@ -1,0 +1,17 @@
+{
+  "predicates": [
+    {
+      "matches": {
+        "method": "GET",
+        "path": "/screenpop/v1/calldata/did/[500]\\d+/ani/[500]\\d+"
+      }
+    }
+  ],
+  "responses": [
+    {
+      "is": {
+        "statusCode": 500
+      }
+    }
+  ]
+}

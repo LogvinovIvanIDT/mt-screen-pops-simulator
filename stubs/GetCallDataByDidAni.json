@@ -1,0 +1,15 @@
+{
+  "predicates": [
+    {
+      "matches": {
+        "method": "GET",
+        "path": "/screenpop/v1/calldata/did/[1]\\d+/ani/[1]\\d+"
+      }
+    }
+  ],
+  "responses": [
+    {
+      "inject": "(config) => {\n\n  var path = config.request.path;\n    let didRegExp = \"(?<=did\\/).+?(?=\\/ani)\";\n    let aniRegExp = \"(?<=ani\\/).+\";\n\n    var cacheKey = path.match(didRegExp)[0] + \".\" + path.match(aniRegExp)[0];\n    var body = null;\n\n    if (typeof config.state.requests !== 'undefined') {\n        if (config.state.requests[cacheKey]) {\n            body = config.state.requests[cacheKey];\n        }\n    }\n\n    if (body !== null) {\n        return {\n            statusCode: 200,\n            body: body\n        };\n    } else {\n        return {\n            statusCode: 404\n        };\n    }\n}"
+    }
+  ]
+}

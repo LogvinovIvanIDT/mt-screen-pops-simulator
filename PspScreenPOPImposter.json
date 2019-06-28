@@ -1,0 +1,16 @@
+{
+  "imposters": [
+    {
+      "port": 8082,
+      "protocol": "http",
+      "stubs": [
+        <% include stubs/GetCallDataByDidAni.json %>,
+        <% include stubs/PutCallDataByDidAni.json %>,
+        <% include stubs/GetCallDataByDidAni-Success.json %>,
+        <% include stubs/GetCallDataByDidAni-NotFoundStatus.json %>,
+        <% include stubs/GetCallDataByDidAni-ServerError.json %>,
+        <% include stubs/GetCallDataByDidAni-PinIsEmpty.json %>
+      ]
+    }
+  ]
+}
